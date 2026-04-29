@@ -1,0 +1,21 @@
+# Core orchestration
+langgraph>=0.2.0
+langchain-core>=0.3.0
+langchain-groq>=0.1.0
+langchain-together>=0.1.0
+
+# Document ingestion
+unstructured[pdf,docx,xlsx]>=0.15.0
+pypdf>=4.0.0
+
+# Graph database
+falkordb>=1.0.0
+
+# Rate-limiting / retry
+tenacity>=8.2.0
+
+# Utilities
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+rich>=13.0.0          # Pretty logging
+typer>=0.12.0         # CLI entry-point

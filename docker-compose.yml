@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  falkordb:
+    image: falkordb/falkordb:latest
+    container_name: falkordb
+    ports:
+      - "6379:6379"   # Redis-compatible port (FalkorDB speaks Redis protocol)
+      - "3000:3000"   # FalkorDB Browser UI
+    volumes:
+      - falkordb_data:/data
+    environment:
+      - FALKORDB_ARGS=--save 60 1 --loglevel notice
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "-p", "6379", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  falkordb_data:
+    driver: local
